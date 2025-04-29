@@ -1,1 +1,1 @@
-# kmc10250.github.io
+# kmc10250.online
