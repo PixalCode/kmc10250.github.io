@@ -1,4 +1,4 @@
-const STREAM_URL = "http://radio14.plathong.net:7034/;stream.mp3";
+const STREAM_URL = "https://radio14.plathong.net/7034/;stream.mp3";
 let audioElement = null;
 let isPlaying = false;
 let isMuted = false;
