@@ -1,4 +1,4 @@
-const STREAM_URL = "https://radio14.plathong.net/7034/;stream.mp3";
+
 let audioElement = null;
 let isPlaying = false;
 let isMuted = false;
@@ -30,7 +30,7 @@ volumeSlider.addEventListener('input', () => {
 // ฟังก์ชันเล่นเสียง
 function playAudio() {
     if (!audioElement) {
-        audioElement = new Audio(STREAM_URL);
+        audioElement = new Audio("https://radio14.plathong.net/7034/;stream.mp3");
         audioElement.crossOrigin = "anonymous";
         audioElement.volume = volumeSlider.value;
         audioElement.addEventListener('timeupdate', updateProgress);
