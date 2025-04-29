@@ -1,4 +1,3 @@
-
 let audioElement = null;
 let isPlaying = false;
 let isMuted = false;
@@ -23,7 +22,7 @@ muteBtn.addEventListener('click', () => {
 volumeSlider.addEventListener('input', () => {
     if (audioElement) {
         audioElement.volume = volumeSlider.value;
-        muteBtn.textContent = audioElement.volume === "0" ? "🔇" : "🔊";
+        muteBtn.querySelector('i').className = audioElement.volume === 0 ? "fas fa-volume-mute" : "fas fa-volume-up";
     }
 });
 
@@ -39,7 +38,7 @@ function playAudio() {
     audioElement.play()
         .then(() => {
             isPlaying = true;
-            playBtn.textContent = "⏸";
+            playBtn.querySelector('i').className = "fas fa-pause"; // เปลี่ยนเป็น Pause
         })
         .catch(error => console.error("Playback failed:", error));
 }
@@ -49,7 +48,7 @@ function pauseAudio() {
     if (audioElement) {
         audioElement.pause();
         isPlaying = false;
-        playBtn.textContent = "▶";
+        playBtn.querySelector('i').className = "fas fa-play"; // เปลี่ยนเป็น Play
     }
 }
 
@@ -58,14 +57,14 @@ muteBtn.addEventListener('click', () => {
     if (audioElement) {
         isMuted = !isMuted;
         audioElement.volume = isMuted ? 0 : volumeSlider.value;
-        muteBtn.textContent = isMuted ? "🔇" : "🔊";
+        muteBtn.querySelector('i').className = isMuted ? "fas fa-volume-mute" : "fas fa-volume-up"; // เปลี่ยนไอคอน
     }
 });
 
 // ฟังก์ชันเปลี่ยนธีม
 themeToggleBtn.addEventListener('click', () => {
     document.body.classList.toggle('light-theme');
-    themeToggleBtn.textContent = document.body.classList.contains('light-theme') ? "🌙" : "☀️";
+    themeToggleBtn.querySelector('i').className = document.body.classList.contains('light-theme') ? "fas fa-sun" : "fas fa-moon"; // เปลี่ยนไอคอน
 });
 
 // ฟังก์ชันอัปเดต Progress Bar
